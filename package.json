@@ -1,0 +1,31 @@
+{
+  "name": "grammagram",
+  "version": "1.0.0",
+  "description": "An application similar to Facebook targeted to the older generation of women. Features include: large text, a homepage of all saved posts, filtered results to view common interests like recipes, bingo tips, and stories about grandchildren via use of tags. Only authenticated users can create new posts, and all posts will be public to any other logged-in user.\r ## Technologies\r - Heroku server and database\r - Sequelize ORM \r - Express session with cookies utilized with Passport\r - npm Passport package for authentication\r - Handlebars templating engine\r - Materialize framework for CSS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsowald/GrammaGram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsowald/GrammaGram/issues"
+  },
+  "homepage": "https://github.com/rsowald/GrammaGram#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.23.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "sequelize": "^6.6.2"
+  }
+}
