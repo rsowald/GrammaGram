@@ -15,9 +15,26 @@ passport.use(new LocalStrategy(
     }
 ));
 
+// serialize the user for the session
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+// deserialize the user
+passport.deserializeUser(function (id, done) {
+    User.findById(id, function (err, user) {
+        done(err, user);
+    });
+});
+
 // To use in routes: 
 // app.post('/login', 
 //   passport.authenticate('local', { failureRedirect: '/login' }),
 //   function(req, res) {
 //     res.redirect('/');
 //   });
+
+// add to server.js
+// const passport = require('passport')
+// app.use(passport.initialize());
+//   app.use(passport.session());
