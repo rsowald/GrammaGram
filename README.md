@@ -12,9 +12,9 @@ An application similar to Facebook targeted to the older generation of women. Fe
 
 ## Breakdown of Responsibilities
 
-DB - Corbin, Colin
-Server - Faiz, Adam
-Front End - Corbin, Adam
-Routes - Sandu
-Models - Renae
-Auth - Renae
+- DB - Corbin, Colin
+- Server - Faiz, Adam
+- Front End - Corbin, Adam
+- Routes - Sandu, Adam
+- Models - Renae, Colin
+- Auth - Renae
