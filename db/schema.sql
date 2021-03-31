@@ -1,19 +1,4 @@
-DROP DATABASE IF EXISTS GrammagramDB;
-CREATE DATABASE GrammagramDB;
 
+DROP DATABASE IF EXISTS grammagram_db;
+CREATE DATABASE grammagram_db
 
-
-
-
-USE animals_db;
-
-
-CREATE TABLE users (
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  
-  authorId INTEGER(11),
-
-  title VARCHAR(100),
-
-  PRIMARY KEY (id)
-);
