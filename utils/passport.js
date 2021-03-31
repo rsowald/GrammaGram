@@ -33,8 +33,3 @@ passport.deserializeUser(function (id, done) {
 //   function(req, res) {
 //     res.redirect('/');
 //   });
-
-// add to server.js
-// const passport = require('passport')
-// app.use(passport.initialize());
-//   app.use(passport.session());
