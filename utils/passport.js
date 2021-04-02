@@ -1,7 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
-var model = require("../models");
+var { User } = require("../models");
 
 passport.use(new LocalStrategy(
     function (username, password, done) {
@@ -31,5 +31,11 @@ passport.deserializeUser(function (id, done) {
 // app.post('/login', 
 //   passport.authenticate('local', { failureRedirect: '/login' }),
 //   function(req, res) {
-//     res.redirect('/');
+//     res.render('dashboard', req.user);
 //   });
+
+//User model needs hashpassword hook and validpassword proto method
+
+//any routes that are not logging in, use withAuth or  w/e
+
+module.exports = passport;
