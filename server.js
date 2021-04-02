@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //serve static folder
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(__dirname + '/public'))
 
 // Set up Handlebars.js engine
 const hbs = exphbs.create({ defaultLayout: 'main', helpers });
@@ -37,6 +38,6 @@ app.use(passport.session());
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
