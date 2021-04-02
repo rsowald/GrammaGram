@@ -1,5 +1,11 @@
 module.exports = {
     format_date: (date) => {
-        return date.toLocaleDateString();
+        try {
+            return date.toLocaleDateString();
+            
+        } catch (error) {
+            return ''
+        }
+        
     },
 };

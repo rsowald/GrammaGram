@@ -1,6 +1,6 @@
 <!-- Loop over each object in the posts array -->
 
-{{#each posts as |posts| }}
+{{#each posts as |post| }}
 
 
 
@@ -16,7 +16,8 @@
       </div>
 
       <div class="card-content">
-        <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+        <h1>Posted by {{post.user.name}} on {{format_date post.createdAt}}</h1>
+        <h1>{{post.text}}</h1>
       </div>
     </div>
   </div>
