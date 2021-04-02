@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-//const routes = require('./controllers');
+const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const passport = require('./utils/passport');
 const sequelize = require('./config/connection');
@@ -25,14 +25,17 @@ app.set('view engine', 'handlebars');
 
 
 //passport auth middleware
-app.use(session
-  (secret: 'Super secret secret',
+app.use(session(
+  {
+    secret: 'Super secret secret',
     resave: false,
-    saveUninitialized: true))
+    saveUninitialized: true
+  }
+))
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
