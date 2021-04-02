@@ -34,8 +34,8 @@ passport.deserializeUser(function (id, done) {
 //     res.render('dashboard', req.user);
 //   });
 
-//User model needs hashpassword hook and validpassword proto method
 
-//any routes that are not logging in, use withAuth or  w/e
+
+//any routes that are not logging in, use withAuth
 
 module.exports = passport;
