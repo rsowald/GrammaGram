@@ -1,4 +1,4 @@
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the posts array -->
 {{#each posts as |posts| }}
 
 
@@ -7,7 +7,7 @@
   <div class="col s12 m6">
     <div class="card">
       <div class="card-content">
-      <h4> {{post.title}} </h4>
+        <h4> {{post.title}} </h4>
       </div>
 
       <div class="card-content">
@@ -15,7 +15,7 @@
       </div>
 
       <div class="card-content">
-      <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+        <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
       </div>
     </div>
   </div>
