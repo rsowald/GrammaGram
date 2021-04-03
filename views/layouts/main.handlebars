@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Gramma Gram</title>
   <head>
+    <title>Gramma Gram</title>
+    <head>
+      
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -25,23 +26,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
+    </head>
   </head>
-</head>
 
-<body>
+  <body>
 
-  <div class="container">
-
+    <div>
       <div class="navbar-fixed">
         <nav>
-          <div class="nav-wrapper"></div>
-            <!-- Conditionally render login or logout links -->
-            {{#if logged_in}}
-            <a href="/profile">profile</a> |
-            <button class="no-button" id="logout">logout</button>
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
+          <div class="nav-wrapper light-blue light-blue accent-3">
+            <a href="#" class="brand-logo">Gramma Gram</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+              <li><a href="sass.html">Sass</a></li>
+              <li><a href="badges.html">Components</a></li>
+              <!-- Conditionally render login or logout links -->
+              {{#if logged_in}}
+              <li><a href="/profile"> Profile </a></li> |
+              <li><button class="btn-large  light-blue darken-4" id="logout">Logout</button></li>
+              {{else}}
+              <li><a href="/login">login</a></li>
+              {{/if}} 
+
+            </ul>
           </div>
         </nav>
       </div>
@@ -52,12 +59,12 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-  </div>
+    </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-</body>
+  </body>
 
 </html>
