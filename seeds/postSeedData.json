@@ -1,37 +1,52 @@
 [
     {
         "id": 1,
-        "text": "user 1, post 1",
-        "user_id": 1
+        "text": "Just read my favorite book again!",
+        "user_id": 1,
+        "hasImage": true,
+        "imageLink": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1358746242l/13407597.jpg"
     },
     {
         "id": 2,
-        "text": "user 1, post 2",
-        "user_id": 1
+        "text": "Just got new legos for the grandkids",
+        "user_id": 1,
+        "hasImage": false,
+        "imageLink": ""
+
     },
     {
         "id": 3,
-        "text": "user 2, post 1",
-        "user_id": 2
+        "text": "Susie and I both had a Condor at the course today!",
+        "user_id": 2,
+        "hasImage": true,
+        "imageLink": "https://www.fabulousfaces.com/lib/upload/lrt2109.jpg"
     },
     {
         "id": 4,
-        "text": "user 3, post 1",
-        "user_id": 3
+        "text": "Jonny thought I couldn't dance...I showed them!",
+        "user_id": 3,
+        "hasImage": true,
+        "imageLink": "https://i.huffpost.com/gen/2013078/thumbs/o-GRANDPARENTS-570.jpg?3"
     },
     {
         "id": 5,
-        "text": "user 1, post 3",
-        "user_id": 1
+        "text": "Just got a new battery in my electric chair. Who wants to race?",
+        "user_id": 1,
+        "hasImage": false,
+        "imageLink": ""
     },
     {
         "id": 6,
-        "text": "user 3, post 2",
-        "user_id": 3
+        "text": "Can't wait to get to Palm Springs next month",
+        "user_id": 3,
+        "hasImage": false,
+        "imageLink": ""
     },
     {
         "id": 7,
-        "text": "user 2, post 2",
-        "user_id": 2
+        "text": "Finally finished my knitted blanket",
+        "user_id": 2,
+        "hasImage": false,
+        "imageLink": ""
     }
 ]
