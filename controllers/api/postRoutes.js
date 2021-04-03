@@ -37,4 +37,26 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// PUT update a POST
+router.put('/:id', async (req, res) => {
+  try {
+    const postData = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+      individualHooks: true
+    });
+    if (!userData[0]) {
+      res.status(404).json({ message: 'No user with this id!' });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 module.exports = router;
