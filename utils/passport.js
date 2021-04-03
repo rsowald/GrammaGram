@@ -7,15 +7,25 @@ passport.use('local-login',
     new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
-        passwordField: 'password'
-
+        passwordField: 'password',
+        passReqToCallback: true // allows us to pass back the entire request to the callback
     },
-        async (email, password, done) => {
+        async (req, email, password, done) => {
             try {
                 const genericError = { message: 'Email or password is incorrect' };
-                var user = User.findOne({ where: email });
+                var user = await User.findOne({ where: {email: req.body.email}});
+                console.log("USER:" + user);
+                console.log("USER:" + user.email);
+                console.log("USER:" + user.checkPassword(password));
                 if (!user) { return done(null, false, genericError); }
-                if (!user.checkPassword(password)) { return done(null, false, genericError); }
+                // if (!user.checkPassword(password)) { return done(null, false, genericError); }
+                
+                // return if password is incorrect
+                if (!user.checkPassword(password)) { 
+                    return done(null, false, {message: 'Credentials incorrect'}); 
+                }
+                
+                // return if password is correct
                 return done(null, user);
             } catch (err) {
                 return done(err);
