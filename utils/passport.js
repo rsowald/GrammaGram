@@ -7,8 +7,8 @@ passport.use('local-login',
     new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true // allows us to pass back the entire request to the callback
+        passwordField: 'password'
+
     },
         async (email, password, done) => {
             try {
@@ -23,18 +23,24 @@ passport.use('local-login',
         }
     ));
 
-passport.use('local-signup', new LocalStrategy(
-    async (email, password, done) => {
-        try {
-            //TODO - check if using exists with that email already?
-            const user = await User.create({ email, password });
+passport.use('local-signup',
+    new LocalStrategy({
+        // by default, local strategy uses username and password, we will override with email
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
+        async (req, email, password, done) => {
+            try {
+                //TODO - check if using exists with that email already?
+                const user = await User.create({ email, password, name: req.name });
 
-            return done(null, user);
-        } catch (err) {
-            res.status(400).json(err);
+                return done(null, user);
+            } catch (err) {
+                res.status(400).json(err);
+            }
         }
-    }
-));
+    ));
 
 // serialize the user for the session
 passport.serializeUser(function (user, done) {
