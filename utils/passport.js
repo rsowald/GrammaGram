@@ -13,7 +13,7 @@ passport.use('local-login',
         async (email, password, done) => {
             try {
                 const genericError = { message: 'Email or password is incorrect' };
-                var user = User.findOne(email);
+                var user = User.findOne({ where: email });
                 if (!user) { return done(null, false, genericError); }
                 if (!user.checkPassword(password)) { return done(null, false, genericError); }
                 return done(null, user);
