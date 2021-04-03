@@ -8,14 +8,14 @@
   <div class="col-md-6">
     <h3>Create a New post:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-post-form">
       <div class="form-group">
-        <label for="project-name">post title:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="post-title">post title:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
       </div>
       <div class="form-group">
-        <label for="project-desc">content:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="post-content">content:</label>
+        <textarea class="form-input" id="post-content" name="post-content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -23,14 +23,14 @@
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  {{#if posts.length}}
+  <div class="col-md-6 post-list">
+    <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{post.id}}">{{post.name}}</a></h4>
+        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
