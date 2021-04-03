@@ -4,12 +4,12 @@ var LocalStrategy = require("passport-local").Strategy;
 var { User } = require("../models");
 
 passport.use(new LocalStrategy(
-    function (username, password, done) {
-        User.findOne({ username: username },
+    function (email, password, done) {
+        User.findOne(email,
             function (err, user) {
-                if (err) { return done(err); }
+                if (err) { return done.json({ message: 'email or password is incorrect' }); }
                 if (!user) { return done(null, false); }
-                if (!user.verifyPassword(password)) { return done(null, false); }
+                if (!user.checkPassword(password)) { return done(null, false); }
                 return done(null, user);
             });
     }
