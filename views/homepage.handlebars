@@ -1,8 +1,4 @@
 <!-- Loop over each object in the posts array -->
-
-
-
-
 {{#each posts as |post| }}
 
 
@@ -12,10 +8,8 @@
     <div class="card light-blue accent-3">
       <div class="card-content">
 
-
         <span class="card-title"><h4> {{post.title}} </h4></span>
-        <p>{{post.text_content}}</p>
-
+        <p>{{post.text}}</p>
 
 
 
@@ -33,12 +27,4 @@
   </div>
 
 
-
-
-  <div class="col-md-7">
-    <p>
-      {{post.text_content}}
-    </p>
-  </div>
-</div>
 {{/each}}
