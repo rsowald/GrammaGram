@@ -7,9 +7,9 @@ passport.use(new LocalStrategy(
     function (email, password, done) {
         User.findOne(email,
             function (err, user) {
-                if (err) { return done.json({ message: 'email or password is incorrect' }); }
-                if (!user) { return done(null, false); }
-                if (!user.checkPassword(password)) { return done(null, false); }
+                if (err) { return done(err); }
+                if (!user) { return done(null, false, { message: 'Email or password is incorrect' }); }
+                if (!user.checkPassword(password)) { return done(null, false, { message: 'Email or password is incorrect' }); }
                 return done(null, user);
             });
     }
@@ -27,15 +27,6 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-// To use in routes: 
-// app.post('/login', 
-//   passport.authenticate('local', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.render('dashboard', req.user);
-//   });
 
-
-
-//any routes that are not logging in, use withAuth
 
 module.exports = passport;
