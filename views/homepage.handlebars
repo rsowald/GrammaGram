@@ -1,5 +1,8 @@
 <!-- Loop over each object in the posts array -->
 
+
+
+
 {{#each posts as |post| }}
 
 
@@ -12,6 +15,12 @@
         <span class="card-title"> {{post.title}} </span>
         <p>{{post.text_content}}</p>
 
+
+
+        {{#if post.hasImage}}
+          <img src={{post.imageLink}} class="img-fluid" style="max-height: 300px; width: auto" alt="">
+        {{/if}}
+        
       </div>
 
       <div class="card-action">
