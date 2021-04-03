@@ -14,15 +14,13 @@ passport.use('local-login',
             try {
                 const genericError = { message: 'Email or password is incorrect' };
                 var user = await User.findOne({ where: {email: req.body.email}});
-                console.log("USER:" + user);
-                console.log("USER:" + user.email);
-                console.log("USER:" + user.checkPassword(password));
+
+                // Return error if no user
                 if (!user) { return done(null, false, genericError); }
-                // if (!user.checkPassword(password)) { return done(null, false, genericError); }
                 
                 // return if password is incorrect
                 if (!user.checkPassword(password)) { 
-                    return done(null, false, {message: 'Credentials incorrect'}); 
+                    return done(null, false, genericError); 
                 }
                 
                 // return if password is correct
@@ -59,7 +57,8 @@ passport.serializeUser(function (user, done) {
 
 // deserialize the user
 passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
+    User.findByPk(id, function (err, user) {
+        console.log("USER HERE: " + user);
         done(err, user);
     });
 });
