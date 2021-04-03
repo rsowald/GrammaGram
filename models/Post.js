@@ -23,6 +23,14 @@ Post.init(
                 key: 'id',
                 unique: false,
             }
+        },
+        hasImage: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        imageLink: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
 
     },
