@@ -3,15 +3,36 @@ var LocalStrategy = require("passport-local").Strategy;
 
 var { User } = require("../models");
 
-passport.use(new LocalStrategy(
-    function (email, password, done) {
-        User.findOne(email,
-            function (err, user) {
-                if (err) { return done(err); }
-                if (!user) { return done(null, false, { message: 'Email or password is incorrect' }); }
-                if (!user.checkPassword(password)) { return done(null, false, { message: 'Email or password is incorrect' }); }
+passport.use('local-login',
+    new LocalStrategy({
+        // by default, local strategy uses username and password, we will override with email
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
+        async (email, password, done) => {
+            try {
+                const genericError = { message: 'Email or password is incorrect' };
+                var user = User.findOne(email);
+                if (!user) { return done(null, false, genericError); }
+                if (!user.checkPassword(password)) { return done(null, false, genericError); }
                 return done(null, user);
-            });
+            } catch (err) {
+                return done(err);
+            }
+        }
+    ));
+
+passport.use('local-signup', new LocalStrategy(
+    async (email, password, done) => {
+        try {
+            //TODO - check if using exists with that email already?
+            const user = await User.create({ email, password });
+
+            return done(null, user);
+        } catch (err) {
+            res.status(400).json(err);
+        }
     }
 ));
 
@@ -26,7 +47,5 @@ passport.deserializeUser(function (id, done) {
         done(err, user);
     });
 });
-
-
 
 module.exports = passport;
