@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', {
       posts,
-      logged_in: req.session.logged_in
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -42,7 +42,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
