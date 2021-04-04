@@ -7,7 +7,7 @@ router.post('/',
 router.post('/login',
   passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login' }));
 
-router.get('/logout', function (req, res) {
+router.post('/logout', function (req, res) {
   req.logout();
   res.redirect('/login');
 });
