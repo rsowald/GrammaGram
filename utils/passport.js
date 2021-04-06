@@ -1,28 +1,26 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
-var { User } = require("../models");
+const { User } = require("../models");
 
 passport.use('local-login',
     new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true // allows us to pass back the entire request to the callback
+        usernameField: 'email'
     },
-        async (req, email, password, done) => {
+        async (email, password, done) => {
             try {
                 const genericError = { message: 'Email or password is incorrect' };
-                var user = await User.findOne({ where: {email: req.body.email}});
+                const user = await User.findOne({ where: { email } });
 
                 // Return error if no user
                 if (!user) { return done(null, false, genericError); }
-                
+
                 // return if password is incorrect
-                if (!user.checkPassword(password)) { 
-                    return done(null, false, genericError); 
+                if (!user.checkPassword(password)) {
+                    return done(null, false, genericError);
                 }
-                
+
                 // return if password is correct
                 return done(null, user);
             } catch (err) {
@@ -35,7 +33,6 @@ passport.use('local-signup',
     new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
-        passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
         async (req, email, password, done) => {
@@ -56,11 +53,13 @@ passport.serializeUser(function (user, done) {
 });
 
 // deserialize the user
-passport.deserializeUser(function (id, done) {
-    User.findByPk(id, function (err, user) {
-        console.log("USER HERE: " + user);
-        done(err, user);
-    });
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await User.findByPk(id);
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
 });
 
 module.exports = passport;
