@@ -38,11 +38,11 @@ passport.use('local-signup',
         async (req, email, password, done) => {
             try {
                 //TODO - check if using exists with that email already?
-                const user = await User.create({ email, password, name: req.name });
+                const user = await User.create({ email, password, name: req.body.name });
 
                 return done(null, user);
             } catch (err) {
-                res.status(400).json(err);
+                return done(err);
             }
         }
     ));
