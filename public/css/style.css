@@ -44,3 +44,17 @@ nav ul a {
 .content {
     position: relative;
 }
+
+div.card-container {
+    column-width: 23rem;
+    -moz-column-width: 23rem;
+    -webkit-column-width: 23rem;
+    column-gap: 1.5rem;
+    -moz-column-gap: 1.5rem;
+    -webkit-column-gap: 1.5rem;
+}
+
+.card-panel {
+    display: inline-block;
+    width: 100%;
+}
