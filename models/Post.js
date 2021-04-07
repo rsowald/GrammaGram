@@ -26,11 +26,13 @@ Post.init(
         },
         hasImage: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: false
         },
         imageLink: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue: ""
         }
 
     },

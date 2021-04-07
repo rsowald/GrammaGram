@@ -1,13 +1,13 @@
 
 const newPostFormHandler = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const content = document.querySelector('#post-content').value.trim();
 
     if (content) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify(content),
+            body: JSON.stringify({text: content}),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -58,7 +58,9 @@ const delButtonHandler = async (event) => {
     }
 };
 
-$('#new-post-form form').on('submit', newPostFormHandler);
+// $('#new-post-form form').on('submit', newPostFormHandler);
+$('#submit-button').on('click', newPostFormHandler);
+
 
 $('.updatePost').on('click', updateButtonHandler);
 
