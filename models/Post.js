@@ -32,7 +32,10 @@ Post.init(
         imageLink: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: ""
+            defaultValue: "",
+            validate: {
+                isUrl: true
+            }
         }
 
     },
