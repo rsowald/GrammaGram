@@ -4,10 +4,8 @@ const withAuth = require('../../utils/auth');
 
 // router.post('/', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
-  console.log('\n\nInfo to post: ' + req);
-  console.log('\n\n\nhere\n\n\n');
+  
   try {
-    
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.passport.user,
@@ -15,6 +13,9 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newPost);
   } catch (err) {
+    if (err.message = 'Validation isUrl on imageLink failed') {
+      res.status(401).json(err)
+    }
     res.status(400).json(err);
   }
 });

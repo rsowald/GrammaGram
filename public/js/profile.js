@@ -3,11 +3,23 @@ const newPostFormHandler = async (event) => {
     // event.preventDefault();
 
     const content = document.querySelector('#post-content').value.trim();
+    const image_link = document.querySelector('#image-link').value.trim()
+
+    if (image_link) {
+        data_ = {
+            text: content,
+            hasImage: true,
+            imageLink: image_link
+        }
+    }
+    else {
+        data_ = {text: content}
+    }
 
     if (content) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify({text: content}),
+            body: JSON.stringify(data_),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -15,8 +27,12 @@ const newPostFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/profile');
+        } 
+        else if (response.status == 401) {
+            alert('Invalid url, try again...')
         } else {
             alert('Failed to post');
+            
         }
     }
 };
