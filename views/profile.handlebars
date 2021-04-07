@@ -18,21 +18,19 @@
       </div>
     </form>
   </div>
+</div>
 
+<div class="row">
   {{#if posts.length}}
   <div class="col m6">
     <h3>Current Posts:</h3>
-
     {{#each posts as |post|}}
     <div class="card blue lighten-4 card-panel edit-post-form">
-      <h4 class="card-header">
-        Edit Post
-      </h4>
       <div class="card-content">
         <form class="space" post-id="{{post.id}}">
           <div class="input-field">
             <label for="post-content">Content</label>
-            <textarea class="input-field post-content" required>{{post.content}}</textarea>
+            <textarea class="input-field post-content" required>{{post.text}}</textarea>
           </div>
 
           <button class="btn light-blue darken-4 updatePost">Update Post</button>
