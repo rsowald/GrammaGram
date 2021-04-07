@@ -1,47 +1,49 @@
-            <div class="row login-form justify-content-center">
-              <div class="col s6">
-                <h2>Login</h2>
-                    <form class="form login-form">
-                        <div class="form-group">
-                            <label for="email-login">email:</label>
-                            <input class="form-input" type="text" id="email-login" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password-login">password:</label>
-                            <input class="form-input" type="password" id="password-login" />
-                        </div>
-                        <div class="form-group">
-                            <button class="btn-large  light-blue darken-4" type="submit">login</button>
-                        </div>
-                    </form>
-                  <p class="d-inline">If you do not already have an account: </p> <button type="button"
-                          class="btn-large  light-blue darken-4">Create Account</button>
-              </div>
-              <div class="col s6">
-            
-            
-            
-                <h2>Signup</h2>
-                <form class="form signup-form">
-                    <div class="form-group">
-                        <label for="name-signup">name:</label>
-                        <input class="form-input" type="text" id="name-signup" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email-signup">email:</label>
-                        <input class="form-input" type="text" id="email-signup" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password-signup">password:</label>
-                        <input class="form-input" type="password" id="password-signup" />
-                    </div>
-                    <div class="form-group">
-                      <button class="btn-large  light-blue darken-4" type="submit">signup</button>
-                    </div>
-                </form>
-                        <p class="d-inline">If you already have an account: </p> <button type="button"
-                        class="btn-large  light-blue darken-4">Sign In</button>
-              </div>
+<div class="row login-form">
+    <div class="col s6 blue lighten-4">
+        <h2>Login</h2>
+        <form class="form">
+            <div class="input-field">
+                <label for="email-login">email:</label>
+                <input class="form-input" type="text" id="email-login" />
             </div>
-            
-            <script src="./js/login.js"></script>
+            <div class="input-field">
+                <label for="password-login">password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="input-field">
+                <button class="btn-large  light-blue darken-4" type="submit">login</button>
+            </div>
+        </form>
+        <p class="inline">If you do not already have an account: </p> <button type="button"
+            class="create btn-large light-blue darken-4 space">Create Account</button>
+    </div>
+</div>
+
+
+<div class="row signup-form">
+    <div class="col s6 blue lighten-4">
+        <h2>Signup</h2>
+        <form class="form">
+
+            <div class="input-field">
+                <label for="name-signup">name:</label>
+                <input class="form-input" type="text" id="name-signup" />
+            </div>
+            <div class="input-field">
+                <label for="email-signup">email:</label>
+                <input class="form-input" type="text" id="email-signup" />
+            </div>
+            <div class="input-field">
+                <label for="password-signup">password:</label>
+                <input class="form-input" type="password" id="password-signup" />
+            </div>
+            <div class="input-field">
+                <button class="btn-large  light-blue darken-4" type="submit">signup</button>
+            </div>
+        </form>
+        <p class="d-inline">If you already have an account: </p> <button type="button"
+            class="login btn-large light-blue darken-4 space">Sign In</button>
+    </div>
+</div>
+
+<script src="/js/login.js"></script>
