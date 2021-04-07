@@ -5,7 +5,11 @@ const newPostFormHandler = async (event) => {
     const content = document.querySelector('#post-content').value.trim();
     const image_link = document.querySelector('#image-link').value.trim()
 
-    if (image_link) {
+    console.log('imnage link: ' + image_link);
+    // console.log('image exist: ' + );
+
+    if (image_link != "") {
+        console.log('image exists');
         data_ = {
             text: content,
             hasImage: true,
@@ -13,7 +17,10 @@ const newPostFormHandler = async (event) => {
         }
     }
     else {
-        data_ = {text: content}
+        console.log('no image');
+        data_ = {text: content,
+            imageLink: 'noimage.com'
+        }
     }
 
     if (content) {
