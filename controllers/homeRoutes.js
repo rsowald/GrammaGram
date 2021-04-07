@@ -80,4 +80,25 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
+router.get('/sass', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.user) {
+    res.redirect('/sass');
+    return;
+  }
+
+  res.render('login');
+});
+
+
+router.get('/badges', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.user) {
+    res.redirect('/badges');
+    return;
+  }
+
+  res.render('login');
+});
 module.exports = router;
