@@ -5,35 +5,39 @@
 </div>
 
 <div class="row">
-  <div class="col m6">
+  <div class="col m6 blue lighten-4">
     <h3>Create a New post:</h3>
 
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="post-title">post title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <label for="post-content">content:</label>
+    <form class="form new-post-form" id="new-post-form">
+      <div class="input-field">
+        <label for="post-content">What would you like to share?</label>
         <textarea class="form-input" id="post-content" name="post-content"></textarea>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+      <div class="input-field">
+        <button type="submit" class="btn-large light-blue darken-4 space right">Create</button>
       </div>
     </form>
   </div>
 
   {{#if posts.length}}
-  <div class="col m6 post-list">
+  <div class="col m6">
     <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}
-    <div class="row m2">
-      <div class="col-md-8">
-        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+    <div class="card blue lighten-4 card-panel edit-post-form">
+      <h4 class="card-header">
+        Edit Post
+      </h4>
+      <div class="card-content">
+        <form class="space" post-id="{{post.id}}">
+          <div class="input-field">
+            <label for="post-content">Content</label>
+            <textarea class="input-field post-content" required>{{post.content}}</textarea>
+          </div>
+
+          <button class="btn light-blue darken-4 updatePost">Update Post</button>
+          <button class="btn light-blue darken-4 deletePost">Delete</button>
+        </form>
       </div>
     </div>
     {{/each}}

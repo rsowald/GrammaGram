@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const passport = require('./utils/passport');
 const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const app = express();
@@ -30,7 +31,10 @@ app.use(session(
   {
     secret: 'Super secret secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
   }
 ))
 app.use(passport.initialize());
