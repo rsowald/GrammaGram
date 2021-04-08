@@ -3,30 +3,12 @@ const newPostFormHandler = async (event) => {
     // event.preventDefault();
 
     const content = document.querySelector('#post-content').value.trim();
-    const image_link = document.querySelector('#image-link').value.trim()
+    const imageLink = document.querySelector('#image-link').value.trim()
 
-    console.log('imnage link: ' + image_link);
-    // console.log('image exist: ' + );
-
-    if (image_link != "") {
-        console.log('image exists');
-        data_ = {
-            text: content,
-            hasImage: true,
-            imageLink: image_link
-        }
-    }
-    else {
-        console.log('no image');
-        data_ = {text: content,
-            imageLink: 'noimage.com'
-        }
-    }
-
-    if (content) {
+    if (content && imageLink) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify(data_),
+            body: JSON.stringify({ text: content, imageLink, hasImage: true }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -34,12 +16,25 @@ const newPostFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/profile');
-        } 
-        else if (response.status == 401) {
-            alert('Invalid url, try again...')
         } else {
             alert('Failed to post');
-            
+
+        }
+    }
+    else if (content) {
+        const response = await fetch(`/api/posts`, {
+            method: 'POST',
+            body: JSON.stringify({ text: content, hasImage: false }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert('Failed to post');
+
         }
     }
 };
@@ -52,7 +47,7 @@ const updateButtonHandler = async (event) => {
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(content),
+        body: JSON.stringify({ text: content }),
         headers: {
             'Content-type': 'application/json',
         },
