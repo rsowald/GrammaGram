@@ -76,6 +76,8 @@
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.sidenav');
       M.Sidenav.init(elems);
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems, { onOpenEnd: () => { $('#comment').focus(); } });
     });
   </script>
   <!-- Render script for logged in users only -->
