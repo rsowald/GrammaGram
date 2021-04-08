@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
 // Create Post model
-class Post extends Model {}
+class Post extends Model { }
 
 Post.init(
     {
@@ -27,14 +27,14 @@ Post.init(
         hasImage: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: false
         },
         imageLink: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isUrl: true
-            }
+            defaultValue: null,
+            // validate: {
+            //     isUrl: true
+            // }
         }
 
     },

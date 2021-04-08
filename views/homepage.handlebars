@@ -3,23 +3,51 @@
 
   {{#each posts as |post| }}
 
-
-  <div class="card blue lighten-4 card-panel">
-    <div class="card-content">
-
-      <h4>{{post.text}}</h4>
-
+  <div class="col m6">
+    <div class="card blue lighten-4">
       {{#if post.hasImage}}
-      <img src={{post.imageLink}} class="responsive-img" alt="">
+      <div class="card-image">
+        <img src={{post.imageLink}} class="responsive-img activator" alt="">
+      </div>
       {{/if}}
+      <div class="card-content">
+        <h4 class="activator">{{post.text}}</h4>
+        <span class="card-title activator grey-text text-darken-4">Click for Comments</span>
+      </div>
 
+      <div class="card-action">
+        <p>Posted by {{post.user.name}} on {{format_date post.createdAt}}</p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
+
+        {{#each post.comments as |comment|}}
+        <p>{{comment.content}} - {{comment.user.name}}, {{format_date comment.createdAt}}</p>
+        {{/each}}
+        {{!-- trigger new comment modal --}}
+        <a class="modal-trigger btn light-blue darken-4" post-id="{{post.id}}" href="#commentsModal">LEAVE A COMMENT</a>
+
+      </div>
     </div>
-
-    <div class="card-action">
-      <p>Posted by {{post.user.name}} on {{format_date post.createdAt}}</p>
-    </div>
-
   </div>
 
   {{/each}}
 </div>
+
+{{!-- new comment modal --}}
+<div id="commentsModal" class="modal">
+  <h3>Leave a Comment</h3>
+  <form class="modal-content" id="new-comment-form">
+    <div class="input-field">
+      <label for="comment">New Comment</label>
+      <textarea class="form-input" id="comment" required></textarea>
+    </div>
+
+
+  </form>
+  <div class="modal-footer">
+    <button class="modal-close btn light-blue darken-4" id="close-button">SUBMIT</button>
+  </div>
+</div>
+
+<script src="./js/homepage.js"></script>

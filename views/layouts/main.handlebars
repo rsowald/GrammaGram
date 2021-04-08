@@ -49,8 +49,8 @@
               </div>
             </nav>
             <ul class="sidenav" id="mobile-demo">
-            <!--<li><a href="sass.html">Memory lane</a></li>-->
-            <!--<li><a href="badges.html">Calender</a></li> -->
+              <!--<li><a href="sass.html">Memory lane</a></li>-->
+              <!--<li><a href="badges.html">Calender</a></li> -->
               <!-- Conditionally render login or logout links -->
               {{#if logged_in}}
               <li><a href="/profile">PROFILE</a></li> |
@@ -76,6 +76,8 @@
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.sidenav');
       M.Sidenav.init(elems);
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems, { onOpenEnd: () => { $('#comment').focus(); } });
     });
   </script>
   <!-- Render script for logged in users only -->

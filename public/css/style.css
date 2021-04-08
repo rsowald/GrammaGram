@@ -45,6 +45,11 @@ nav ul a {
     position: relative;
 }
 
+.modal-trigger {
+    margin-top: 15px;
+}
+
+/*
 div.card-container {
     column-width: 23rem;
     -moz-column-width: 23rem;
@@ -57,4 +62,4 @@ div.card-container {
 .card-panel {
     display: inline-block;
     width: 100%;
-}
+}*/
