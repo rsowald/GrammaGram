@@ -4,6 +4,7 @@
 ---
 * [Description](#Description)
 * [Technologies](#Technologies)
+* [Roadmap](#Roadmap)
 * [Responsibilities](#Responsibilities)
 * [Credits](#Credits)
 * [Authors](#Authors)
@@ -13,7 +14,7 @@
 
 
 ## Description
-An application similar to Facebook targeted to the older generation of women. Features include: large text, a homepage of all saved posts, filtered results to view common interests like recipes, bingo tips, and stories about grandchildren via use of tags. Only authenticated users can create new posts, and all posts will be public to any other logged-in user.
+An application similar to Facebook targeted to the older generation of women. Features include: large text, a homepage of all posts, and comments on all posts. Only authenticated users can create new posts and comment. All posts will be public to any other logged-in user.
 
 
 ## Technologies
@@ -21,13 +22,20 @@ An application similar to Facebook targeted to the older generation of women. Fe
 - Sequelize ORM 
 - Express session with cookies utilized with Passport
 - npm Passport package for authentication
-- Handlebars templating engine
+- Handlebars template engine
 - Materialize framework for CSS
+
+## Roadmap
+- Filtered results to view common interests like recipes, bingo tips, and stories about grandchildren via use of tags.
+- Images: ability to add images and save to AWS S3 bucket
+- Shared calendar to coordinate group events
+- Interest groups (reading, knitting, bridge etc.)
+
 
 
 ## Breakdown of Responsibilities
 - DB - Corbin, Colin
-- Server - Faiz, Adam
+- Server - Adam
 - Front End - Corbin, Adam
 - Routes - Sandu, Adam
 - Models - Renae, Colin
@@ -36,13 +44,11 @@ An application similar to Facebook targeted to the older generation of women. Fe
 
 ## Credits
 ---
-    The following tutorials were used: 
-        * https://www.w3schools.com/howto/howto_css_modals.asp : used for modal 
-        * https://github.com/Rob--W/cors-anywhere
-        * https://www.w3schools.com/graphics/google_maps_intro.asp
-        * https://developers.google.com/maps/documentation/javascript/overview
+    The following resources were used: 
+        * https://materializecss.com/
         * http://www.passportjs.org/docs/
         * http://expressjs.com/
+        * https://unsplash.com/
 
 
 ## Authors
@@ -53,7 +59,7 @@ An application similar to Facebook targeted to the older generation of women. Fe
 * [Colin Bell](https://github.com/cobell206)
 * [Adam Stevenson](https://github.com/adams1971)
 * [Sandu Corobcenco](https://github.com/SanduCorobcenco)
-* [Faiz Azeem]()
+* [Faiz Azeem](https://github.com/faiza002)
 
 
 
